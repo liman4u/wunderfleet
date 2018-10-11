@@ -8,9 +8,12 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
 
@@ -19,19 +22,11 @@ class HomeController extends Controller
         return view('index');
     }
 
-    public function storePersonalInformation() {
+    public function storeCustomerInformation(Request $request) {
 
-
+            dd($request->all());
     }
 
-    public function storeAddressInformation() {
 
-
-    }
-
-    public function storePaymentInformation() {
-
-
-    }
 
 }

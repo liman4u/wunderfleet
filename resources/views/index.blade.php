@@ -54,7 +54,7 @@
                                             <div class="col-sm-8 col-sm-offset-2">
                                                 <div class="form-group">
                                                     <label>First Name <small>(required)</small></label>
-                                                    <input name="first_name" type="text" class="form-control" placeholder="John" required="true">
+                                                    <input name="first_name" id="first_name"  type="text" class="form-control" placeholder="John" required="true">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Last Name <small>(required)</small></label>
@@ -64,6 +64,8 @@
                                                     <label>Telephone <small>(required)</small></label>
                                                     <input name="telephone" type="tel" class="form-control" placeholder="+49 231 50-0" required="true">
                                                 </div>
+
+                                                <input type="hidden" id="step1" name="step1">
                                             </div>
                                         </div>
                                     </div>
@@ -152,8 +154,6 @@
                                             </div>
 
 
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -190,6 +190,7 @@
     <!-- SITE SCRIPT -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/gsdk-bootstrap-wizard.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
 
 
 </html>
