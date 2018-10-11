@@ -7,6 +7,9 @@
 
         <title>Wunder Fleet</title>
 
+        <!-- Fav Icon -->
+        <link rel="icon" type="img/ico" href="{{ asset('img/favicon.ico') }}">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
@@ -15,7 +18,7 @@
 
     </head>
     <body>
-    <div class="image-container set-full-height" style="background-image: url('img/wizard.jpg')">
+    <div class="image-container set-full-height" style="background-image: url('{{ asset('img/wizard.jpg') }}')">
 
 
         <!--   Big container   -->

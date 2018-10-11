@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 /**
@@ -17,14 +18,29 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
+    /**
+     * Home of Wunder Fleet Customer Registration
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index() {
 
         return view('index');
     }
 
+    /**
+     * Store customer information
+     *
+     * @param Request $request
+     */
     public function storeCustomerInformation(Request $request) {
 
+        // save customer information
 
+        $customer = new Customer($request->all());
+        $customer->save();
+
+        return true;
     }
 
 
