@@ -36,4 +36,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+
+    'wunder_payment_api' => [
+        'url' => env('HPP_API_URL','https://37f32cl571.execute-api.eu-central-1.amazonaws.com/default'),
+    ]
 ];

@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Jobs\PaymentJob;
 use Illuminate\Http\Request;
 
 /**
@@ -35,10 +36,18 @@ class HomeController extends Controller
      */
     public function storeCustomerInformation(Request $request) {
 
-        // save customer information
+        // save customer information into database
 
         $customer = new Customer($request->all());
         $customer->save();
+
+
+        // make payment
+        $data['customer_id'] = $customer->id;
+        $data['iban'] = $request->input('iban');
+        $data['owner'] = $request->input('account_owner');
+
+        $response = $this->dispatch(new PaymentJob($request));
 
         return true;
     }
