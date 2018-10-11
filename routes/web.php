@@ -13,4 +13,4 @@
 
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::post('storeCustomerInformation', ['as' => 'storeCustomerInformation', 'uses' => 'HomeController@storeCustomerInformation']);
+Route::post('/storeCustomerInformation', ['as' => 'storeCustomerInformation', 'uses' => 'HomeController@storeCustomerInformation']);

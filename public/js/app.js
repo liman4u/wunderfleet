@@ -15,46 +15,6 @@ jQuery(document).ready(function() {
     $("#iban").val(getCookie('iban'));
 
 
-    $('.btn-next').click(function(){
-        var currentTab = $('.wizard-card').bootstrapWizard('currentIndex');
-       console.log(currentTab);
-
-        switch (currentTab){
-            case 1:
-
-                var first_name = $("#first_name").val();
-                var last_name = $("#last_name").val();
-                var telephone = $("#telephone").val();
-
-                setCookie('first_name',first_name);
-                setCookie('last_name',last_name);
-                setCookie('telephone',telephone);
-
-                break;
-            case 2:
-                var street_name = $("#street_name").val();
-                var house_number = $("#house_number").val();
-                var zip_code = $("#zip_code").val();
-                var city = $("#city").val();
-
-                setCookie('street_name',street_name);
-                setCookie('house_number',house_number);
-                setCookie('zip_code',zip_code);
-                setCookie('city',city);
-
-                break;
-            case 3:
-                var account_owner = $("#account_owner").val();
-                var iban = $("#iban").val();
-
-                setCookie('account_owner',account_owner);
-                setCookie('iban',iban);
-
-
-
-                break;
-        }
-    });
 
 });
 
@@ -69,6 +29,7 @@ function setCookie(name,value) {
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
+
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

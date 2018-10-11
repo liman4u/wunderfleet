@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function storeCustomerInformation(Request $request) {
 
-            dd($request->all());
+
     }
 
 

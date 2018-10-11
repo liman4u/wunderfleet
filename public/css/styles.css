@@ -10174,7 +10174,6 @@ label small {
 
 .image-container:before {
   content: '';
-  background: url(../img/stripe_pattern.png) repeat;
   position: absolute;
   left: 0;
   top: 0;

@@ -27,8 +27,8 @@
                     <div class="wizard-container">
 
                         <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                            <form action="" method="">
-
+                            <form id="customer_info_form">
+                                {{ csrf_field() }}
                                 <div class="wizard-header">
                                     <h3>
                                         <b>REGISTER FLEET</b> with  <b>WUNDER MOBILITY</b>
@@ -58,14 +58,13 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Last Name <small>(required)</small></label>
-                                                    <input name="last_name" type="text" class="form-control" placeholder="Doe" required="true">
+                                                    <input name="last_name" id="last_name" type="text" class="form-control" placeholder="Doe" required="true">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Telephone <small>(required)</small></label>
-                                                    <input name="telephone" type="tel" class="form-control" placeholder="+49 231 50-0" required="true">
+                                                    <input name="telephone" id="telephone" type="tel" class="form-control" placeholder="+49 231 50-0" required="true">
                                                 </div>
 
-                                                <input type="hidden" id="step1" name="step1">
                                             </div>
                                         </div>
                                     </div>
@@ -77,25 +76,25 @@
                                             <div class="col-sm-5 col-sm-offset-1">
                                                 <div class="form-group">
                                                     <label>Street Name <small>(required)</small> </label>
-                                                    <input type="text" class="form-control" placeholder="5h Avenue" required="true">
+                                                    <input name="street_name" id="street_name" type="text" class="form-control" placeholder="5h Avenue" required="true">
                                                 </div>
                                             </div>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <label>House Number <small>(required)</small> </label>
-                                                    <input name="house_number" type="text" class="form-control" placeholder="B514 Nowhere Street" required="true">
+                                                    <input name="house_number" id="house_number" type="text" class="form-control" placeholder="B514 Nowhere Street" required="true">
                                                 </div>
                                             </div>
                                             <div class="col-sm-5 col-sm-offset-1">
                                                 <div class="form-group">
                                                     <label>Zip Code <small>(required)</small> </label>
-                                                    <input name="zip_code" type="text" class="form-control" placeholder="44135" required="true">
+                                                    <input name="zip_code" id="zip_code" type="text" class="form-control" placeholder="44135" required="true">
                                                 </div>
                                             </div>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <label>City <small>(required)</small> </label><br>
-                                                    <select name="city" class="form-control">
+                                                    <select name="city" id="city" class="form-control">
                                                         <option value="Berlin"> Berlin </option>
                                                         <option value="Frankfurt"> Frankfurt </option>
                                                         <option value="Hamburg"> Hamburg </option>
@@ -116,14 +115,14 @@
                                             <div class="col-sm-5 col-sm-offset-1">
                                                 <div class="form-group remove-bottom-padding">
                                                     <label>Account Owner <small>(required)</small> </label>
-                                                    <input type="text" class="form-control" placeholder="John Doe" required="true">
+                                                    <input type="text" name="account_owner" id="account_owner" class="form-control" placeholder="John Doe" required="true">
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-5">
                                                 <div class="form-group remove-bottom-padding">
                                                     <label>IBAN <small>(required)</small> </label>
-                                                    <input type="text" class="form-control" placeholder="DE8234" required="true">
+                                                    <input type="text" name="iban" id="iban" class="form-control" placeholder="DE8234" required="true">
                                                 </div>
                                             </div>
 
@@ -189,8 +188,9 @@
 
     <!-- SITE SCRIPT -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/gsdk-bootstrap-wizard.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/gsdk-bootstrap-wizard.js') }}" type="text/javascript"></script>
+
 
 
 </html>
