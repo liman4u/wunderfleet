@@ -91,16 +91,36 @@ $(document).ready(function(){
 
                     var postdata = $('#customer_info_form').serialize();
 
-                    $.ajax({
+                    var request = $.ajax({
                         type: 'POST',
                         url: '/storeCustomerInformation',
                         data: postdata,
-                        dataType: 'json',
-                        success: function(json) {
+                        dataType: 'json'
+                    });
 
-                            console.log("Success")
+                    request.done(function( result ) {
+                        //alert(result);
+
+                        console.log(result);
+
+                        if(result != null){
+                            $("#payment_id").html(result);
+                            $("#loading_box").hide();
+                            $("#success_box").show();
+
+                        }else{
+                            $("#loading_box").hide();
+                            $("#error_box").show();
                         }
                     });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                       // alert( "Request failed: " + textStatus );
+
+                        $("#error_box").show();
+                    });
+
+
 
                     break;
             }

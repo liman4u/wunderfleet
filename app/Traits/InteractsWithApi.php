@@ -81,7 +81,7 @@ trait InteractsWithApi
      */
     public function postToApi($endpoint, $postData = []) {
 
-        return $this->fetchFromApi('POST', $endpoint, ['json' => $postData];
+        return $this->fetchFromApi('POST', $endpoint, ['json' => $postData]);
     }
 
 

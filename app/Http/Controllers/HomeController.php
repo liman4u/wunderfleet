@@ -11,6 +11,8 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Jobs\PaymentJob;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Log;
 
 /**
  * Class HomeController
@@ -43,13 +45,48 @@ class HomeController extends Controller
 
 
         // make payment
-        $data['customer_id'] = $customer->id;
-        $data['iban'] = $request->input('iban');
-        $data['owner'] = $request->input('account_owner');
 
-        $response = $this->dispatch(new PaymentJob($request));
+        $data = array('customerId' => $customer->id,'iban' => $request->input('iban'),'owner' => $request->input('account_owner'));
 
-        return true;
+        //Log::info(json_encode($data));
+
+
+        try {
+            $response = $this->dispatch(new PaymentJob($data));
+
+            $payment_id = $response->paymentDataId;
+
+            Log::info($payment_id);
+
+            if ($response && $payment_id) {
+                Log::info("Here...........");
+
+                return json_encode($payment_id);
+
+            } else {
+                throw new \Exception(json_encode($response));
+            }
+        } catch (\Exception $e) {
+
+
+            if (method_exists($e, 'hasResponse')) {
+                if ($e->hasResponse()) {
+
+                    $message = (string)$e->getResponse()->getBody();
+
+                }
+            }else{
+                $message = $e->getMessage();
+            }
+
+            logger()->error("An error occurred while sending payment", [
+                'file' => $e->getFile(), 'line' => $e->getLine(), 'message' => $message
+            ]);
+
+
+            return null;
+        }
+
     }
 
 

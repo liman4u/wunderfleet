@@ -15,6 +15,9 @@ jQuery(document).ready(function() {
     $("#iban").val(getCookie('iban'));
 
 
+    $("#success_box").hide();
+
+    $("#error_box").hide();
 
 });
 

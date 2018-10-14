@@ -24,7 +24,7 @@
         <!--   Big container   -->
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
+                <div class="col-sm-10 col-sm-offset-1">
 
                     <!--      Wizard container        -->
                     <div class="wizard-container">
@@ -135,23 +135,30 @@
                                     <div class="tab-pane" id="confirmation">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <h4 class="info-text"> Result of form post </h4>
+                                                <h4 class="info-text"> Payment Status </h4>
                                             </div>
 
-                                            <div class="col-sm-12">
-                                                <div class="notice notice-success">
-
-                                                    <strong><i class="fa fa-check-circle success-icon"></i></strong><br />
-                                                    <span class="success-code">200</span><br />
-                                                    <span class="success-message">paymentDataId</span>
+                                            <div class="col-sm-12" id="loading_box">
+                                                <div class="notice notice-warning">
+                                                    <span class="success-code">Status loading.......</span><br />
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" id="success_box">
+                                                <div class="notice notice-success">
+
+                                                    <strong><i class="fa fa-check-circle success-icon"></i></strong><br />
+                                                    <span class="success-code">Payment was successful</span><br />
+                                                    <span class="success-code">Payment Data ID </span><br />
+                                                    <span class="success-message"><b id="payment_id"></b></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12" id="error_box">
                                                 <div class="notice notice-danger">
                                                     <strong><i class="fa fa-exclamation-circle error-icon"></i></strong><br />
-                                                    <span class="error-code">200</span><br />
-                                                    <span class="error-message">error</span>
+                                                    <span class="error-code">Payment failed</span><br />
+                                                    <span class="error-message">Something went wrong, try again</span>
                                                 </div>
                                             </div>
 
