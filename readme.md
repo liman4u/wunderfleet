@@ -9,7 +9,8 @@ A Simple web app for registration of wunder fleet customers
  - Enter `composer install` (assuming you have `composer` and its related packages installed and or configured)
  - Rename `.env.example`  to `.env` (This contains the app configs and databases settings)
  - Configure your database settings in `.env`
- - Enter `php artisan serve`
+ - Enter `php artisan serve` to start application
+ - Enter `php artisan migrate` to run migration (Dump of database is also found in database/dumps)
  - Run tests with `./vendor/bin/phpumit`
  - Open localhost:8000 or 127.0.0.1:8000 to view app
 
