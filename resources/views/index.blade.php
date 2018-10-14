@@ -125,7 +125,7 @@
                                             <div class="col-sm-5">
                                                 <div class="form-group remove-bottom-padding">
                                                     <label>IBAN <small>(required)</small> </label>
-                                                    <input type="text" name="iban" id="iban" class="form-control" placeholder="DE8234" required="true">
+                                                    <input type="text" name="IBAN" id="iban" class="form-control" placeholder="DE8234" required="true">
                                                 </div>
                                             </div>
 

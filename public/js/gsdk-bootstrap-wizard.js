@@ -108,6 +108,9 @@ $(document).ready(function(){
                             $("#loading_box").hide();
                             $("#success_box").show();
 
+
+                            $('.btn-previous').hide();
+
                         }else{
                             $("#loading_box").hide();
                             $("#error_box").show();

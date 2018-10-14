@@ -57,7 +57,7 @@ class HomeController extends Controller
 
         // make payment
 
-        $data = array('customerId' => $customer->id,'iban' => $request->input('iban'),'owner' => $request->input('account_owner'));
+        $data = array('customerId' => $customer->id,'iban' => $request->input('IBAN'),'owner' => $request->input('account_owner'));
 
         //Log::info(json_encode($data));
 
