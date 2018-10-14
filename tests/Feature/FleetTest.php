@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Customer;
+use App\Repositories\CustomerRepository;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Tests\TestCase;
@@ -22,7 +23,39 @@ class FleetTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /**
+     * Test for can create customer with reposistory
+     */
+    public function testCanCreateCustomer(){
 
+        $data = [
+
+            'first_name' => $this->faker->name,
+            'last_name' => $this->faker->name,
+            'telephone' => $this->faker->phoneNumber,
+            'street_name' => $this->faker->streetName,
+            'house_number' => $this->faker->streetAddress,
+            'zip_code' => $this->faker->text(10),
+            'city' => $this->faker->city,
+            'account_owner' => $this->faker->name,
+            'IBAN' => $this->faker->iban('DE')
+
+        ];
+
+
+        $customerRepo = new CustomerRepository(new Customer);
+        $customer = $customerRepo->createCustomer($data);
+
+
+        $this->assertInstanceOf(Customer::class, $customer);
+        $this->assertEquals($data['first_name'], $customer->first_name);
+        $this->assertEquals($data['last_name'], $customer->last_name);
+        $this->assertEquals($data['telephone'], $customer->telephone);
+    }
+
+    /**
+     * Test for can retrieve payment id
+     */
     public function testCanRetrievePaymentIdFleetAPI(){
 
         $apiUrl = config('services.wunder_payment_api.url');
@@ -48,6 +81,9 @@ class FleetTest extends TestCase
 
     }
 
+    /**
+     * Test for can not retrieve payment id with invalid data
+     */
     public function testCanNotRetrievePaymentIdFleetAPIInvalidData(){
 
         $apiUrl = config('services.wunder_payment_api.url');
@@ -79,6 +115,9 @@ class FleetTest extends TestCase
 
     }
 
+    /**
+     * Test for can not retrieve payment id with empty data
+     */
     public function testCanNotRetrievePaymentIdFleetAPIEmptyData(){
 
         $apiUrl = config('services.wunder_payment_api.url');

@@ -8,8 +8,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
 use App\Jobs\PaymentJob;
+use App\Repositories\CustomerRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Log;
@@ -20,6 +20,18 @@ use Log;
  */
 class HomeController extends Controller
 {
+    /**
+     * @var CustomerRepository
+     */
+    protected $repository;
+
+    /**
+     * CustomersController constructor.
+     * @param CustomerRepository $repository
+     */
+    public function __construct(CustomerRepository $repository){
+        $this->repository = $repository;
+    }
 
     /**
      * Home of Wunder Fleet Customer Registration
@@ -40,8 +52,7 @@ class HomeController extends Controller
 
         // save customer information into database
 
-        $customer = new Customer($request->all());
-        $customer->save();
+        $customer = $this->repository->createCustomer($request->all());
 
 
         // make payment
