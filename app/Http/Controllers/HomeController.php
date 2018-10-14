@@ -59,7 +59,10 @@ class HomeController extends Controller
             Log::info($payment_id);
 
             if ($response && $payment_id) {
-                Log::info("Here...........");
+
+                //save payment status
+                $customer->payment_status = 'SUCCESS';
+                $customer->payment_id = $payment_id;
 
                 return json_encode($payment_id);
 
