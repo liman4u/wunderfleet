@@ -24,7 +24,7 @@ class CreateCustomersTable extends Migration
             $table->string('city');
             $table->string('account_owner');
             $table->string('IBAN');
-            $table->string('paymant_status')->default('PENDING');
+            $table->string('payment_status')->default('PENDING');
             $table->text('payment_id')->nullable(true);
             $table->timestamps();
         });

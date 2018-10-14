@@ -63,6 +63,7 @@ class HomeController extends Controller
                 //save payment status
                 $customer->payment_status = 'SUCCESS';
                 $customer->payment_id = $payment_id;
+                $customer->save();
 
                 return json_encode($payment_id);
 
