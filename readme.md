@@ -13,6 +13,19 @@ A Simple web app for registration of wunder fleet customers
  - Enter `php artisan migrate` to run migration (Dump of database is also found in database/dumps)
  - Run tests with `./vendor/bin/phpumit`
  - Open localhost:8000 or 127.0.0.1:8000 to view app
+ 
+ # Possible Performance Optiomatizations
+ 
+ 1- Profile Queries - by using Debug Bar , will allow you to see what queires are invoked
+ 
+ 2- Minify and combine css and javascript -  allows to lower request from website
+ 
+ 3- Use New Relic - provides deep insight into what’s happening in your Laravel application. This will allow You to find memory leaks, slow queries etc.
+ 
+ # Things that could have been done better
+ 
+ 1- Testing frontend with Laravel Dusk 
+ 
 
 # Screenshots
 #### Home Page - Step 1
@@ -31,14 +44,3 @@ A Simple web app for registration of wunder fleet customers
 ![Image](screenshots/5.png?raw=true "Error : Payment Failure")
 
 
-# Possible Performance Optiomatizations
-
-1- Profile Queries - by using Debug Bar , will allow you to see what queires are invoked
-
-2- Minify and combine css and javascript -  allows to lower request from website
-
-3- Use New Relic - provides deep insight into what’s happening in your Laravel application. This will allow You to find memory leaks, slow queries etc.
-
-# Things that could have been done better
-
-1- Testing frontend with Laravel Dusk 
