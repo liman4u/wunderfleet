@@ -106,13 +106,30 @@ $(document).ready(function(){
                         if(result != null){
                             $("#payment_id").html(result);
                             $("#loading_box").hide();
+                            $("#error_box").hide();
                             $("#success_box").show();
 
 
+
+                            // hide previous button on successful payment
                             $('.btn-previous').hide();
+
+                            //clear cache on successful payment
+                            eraseCookie('first_name');
+                            eraseCookie('last_name');
+                            eraseCookie('telephone');
+
+                            eraseCookie('street_name');
+                            eraseCookie('house_number');
+                            eraseCookie('zip_code');
+                            eraseCookie('city');
+
+                            eraseCookie('account_owner');
+                            eraseCookie('iban');
 
                         }else{
                             $("#loading_box").hide();
+                            $("#success_box").hide();
                             $("#error_box").show();
                         }
                     });
@@ -120,6 +137,7 @@ $(document).ready(function(){
                     request.fail(function( jqXHR, textStatus ) {
                        // alert( "Request failed: " + textStatus );
                         $("#loading_box").hide();
+                        $("#success_box").hide();
                         $("#error_box").show();
                     });
 
